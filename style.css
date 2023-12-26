@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+body {
+  font-family: Roboto;
+  background-color: rgb(247, 247, 247);
+}
+
+p {
+  margin: 0px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+input {
+  height: 30px;
+  padding: 8px;
+  font-size: 1em;
+  border: solid 1px rgb(211, 211, 211);
+  border-radius: 4px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  column-gap: 40px;
+  padding: 0px 30px;
+}
+
+.btn {
+  background-color: #00355F;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 12px;
+  display: inline-block;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 10px;
+}
+
+.btn.inactive {
+  background-color: #cccccc;
+  color: black;
+}
+
+label {
+  font-weight: bold;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0px auto;
+}
+
+.card {
+  border: solid 1x grey;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background-color: white;
+  padding: 30px;
+}
+
+.labelled-input {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.result {
+  margin-top: 30px;
+}
+
+#pricing {
+  text-align: center;
+  font-size: 2.5em;
+  font-family: Poppins;
+  font-weight: bold;
+  color: #E28500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .nav {
+    column-gap: 10px;
+    padding: 0px 10px;
+  }
+  .card {
+    padding: 30px 10px;
+  }
+}
