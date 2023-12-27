@@ -65,6 +65,11 @@ label {
   border-radius: 10px;
   background-color: white;
   padding: 30px;
+  display: block;
+}
+
+.card.inactive {
+  display: none;
 }
 
 .labelled-input {
@@ -86,6 +91,14 @@ label {
   color: #E28500;
 }
 
+#pricing.error {
+  font-size: 1em;
+  font-family: Roboto;
+  font-weight: normal;
+  margin-top: 10px;
+  color: red;
+}
+
 .text-center {
   text-align: center;
 }
@@ -98,4 +111,9 @@ label {
   .card {
     padding: 30px 10px;
   }
+}
+
+#map {
+  height: 600px;
+  width: 100%;
 }

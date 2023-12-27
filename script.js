@@ -35,12 +35,23 @@ const bareme = {
 const age = document.querySelector('#age');
 const value = document.querySelector('#value');
 const pricing = document.querySelector('#pricing');
-const min = document.querySelector('#min')
+const min = document.querySelector('#min');
+
+const pricingButton = document.querySelector('#pricing-button');
+const mapButton = document.querySelector('#map-button');
+
+const pricingCard = document.querySelector('#pricing-card');
+const mapCard = document.querySelector('#map');
+
 
 const minValue = () => {
   const m = Math.max(Math.ceil(100000 / bareme[age.value]), 200000);
-  min.innerHTML = m.toLocaleString('fr', {maximumFractionDigits: 0, style: "currency", currency:"EUR"})
-  value.min = m;
+  if (age.value < 70) {
+    min.innerHTML = ""
+  } else {
+    min.innerHTML = m.toLocaleString('fr', {maximumFractionDigits: 0, style: "currency", currency:"EUR"})
+    value.min = m;
+  }
   if (value.value < m) {
     value.value = m;
     calculatePricing();
@@ -49,7 +60,16 @@ const minValue = () => {
 
 const calculatePricing = () => {
   const p = (parseInt(value.value) * bareme[age.value]);
-  pricing.innerHTML = p.toLocaleString('fr', {maximumFractionDigits: 0, style: "currency", currency:"EUR"});
+  if (age.value < 70) {
+    pricing.innerHTML = "Veuillez indiquer un âge supérieur à 70 ans";
+    pricing.classList.add('error');
+  } else if (value.value < value.min) {
+    pricing.innerHTML = `Veuillez indiquer une valeur supérieure à ${value.min} €`;
+    pricing.classList.add('error');
+  } else {
+    pricing.innerHTML = p.toLocaleString('fr', {maximumFractionDigits: 0, style: "currency", currency:"EUR"});
+    pricing.classList.remove('error');
+  }
 }
 
 [age, value].forEach((item) => {
@@ -57,3 +77,17 @@ const calculatePricing = () => {
 })
 
 age.addEventListener('change', minValue);
+
+pricingButton.addEventListener('click', () => {
+  pricingButton.classList.remove('inactive');
+  mapButton.classList.add('inactive');
+  pricingCard.classList.remove('inactive');
+  mapCard.classList.add('inactive');
+})
+
+mapButton.addEventListener('click', () => {
+  pricingButton.classList.add('inactive');
+  mapButton.classList.remove('inactive');
+  pricingCard.classList.add('inactive');
+  mapCard.classList.remove('inactive');
+})
