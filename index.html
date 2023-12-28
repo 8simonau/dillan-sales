@@ -5,64 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
 
-  
   <link rel="stylesheet" href="style.css">
 
+  <!-- Mapbox script and CSS -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet'/>
 
-
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
-  <title>Dillan Sales</title>
+  <title>Dillan - Outils commerciaux</title>
 </head>
-<body>
+<body id="top">
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
-  <div class="container">
+
+  <div class="navbar">
+    <img src="https://assets-global.website-files.com/635bcfc5c3b17618b2c67741/635bcfc5c3b176953ec67971_Dillan_logo%20svg.svg" width="120px" alt="Logo Dillan">
     <div class="nav">
-      <button id="pricing-button" class="btn inactive">Prix</button>
-      <button id="map-button" class="btn">Villes</button>
+      <a href="#top"id="pricing-button" class="btn inactive">Prix</a>
+      <a href="#map"id="map-button" class="btn">Villes</a>
     </div>
-    <div id="pricing-card" class="card inactive">
-      <div class="labelled-input">
+  </div>
+
+  <div class="content">
+
+    <div class="container">
+
+
+      <p class="content-title">Pricing</p>
+
+      <div id="pricing-card" class="card">
+        <div class="labelled-input">
         <label>Age du plus jeune</label>
         <input id="age" type="number" min="70" placeholder="75">
       </div>
+
       <div class="labelled-input">
-        <label class="mt-4">Valeur du bien</label>
+        <label>Valeur du bien</label>
         <input id="value" type="number" min="200000" placeholder="300000">
-        <p class="mb-0">
-          Valeur mini du bien: <span id="min">257 879 €</span>
+        <p>
+          Valeur minimale: <span id="min">257 879 €</span>
         </p>
       </div>
+
       <div class="result">
-        <p class="text-center bold">Pricing Dillan</p>
+        <p class="text-center semi-bold">Pricing Dillan</p>
         <p id="pricing">116 333 €</p>
+      </div>
       </div>
     </div>
 
-    <div id="map" class="card">
+    <div class="container">
+
+      <p class="content-title">Eligibilité géographique</p>
+
+      <div id="map" class="card">
+      </div>
     </div>
 
   </div>
 
     <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiOHNpbW9uYXUiLCJhIjoiY2xwaXFxbWVwMDI3NTJubDZxa2g2dmtxbSJ9.BF_dr7VOxg6PixXHrEE-FQ';
-    const map = new mapboxgl.Map({
-      container: 'map', // container ID
-      style: 'mapbox://styles/8simonau/clqo68jll00pi01qyfcs1enz5', // style URL
-      center: [2.40, 47.41], // starting position [lng, lat]
-      zoom: 6, // starting zoom
-    });
-    // Add the control to the map.
-    map.addControl(
-    new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-    countries: "fr",
-    types: "place, postcode"
-    })
-    );
 
     </script>
 <script type="text/javascript" src="script.js"></script>

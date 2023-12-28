@@ -81,13 +81,26 @@ age.addEventListener('change', minValue);
 pricingButton.addEventListener('click', () => {
   pricingButton.classList.remove('inactive');
   mapButton.classList.add('inactive');
-  pricingCard.classList.remove('inactive');
-  mapCard.classList.add('inactive');
 })
 
 mapButton.addEventListener('click', () => {
   pricingButton.classList.add('inactive');
   mapButton.classList.remove('inactive');
-  pricingCard.classList.add('inactive');
-  mapCard.classList.remove('inactive');
 })
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiOHNpbW9uYXUiLCJhIjoiY2xwaXFxbWVwMDI3NTJubDZxa2g2dmtxbSJ9.BF_dr7VOxg6PixXHrEE-FQ';
+const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/8simonau/clqo68jll00pi01qyfcs1enz5', // style URL
+  center: [2.40, 47], // starting position [lng, lat]
+  zoom: 5, // starting zoom
+});
+// Add the control to the map.
+map.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl,
+countries: "fr",
+types: "place, postcode"
+})
+);

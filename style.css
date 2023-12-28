@@ -1,16 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
 
 body {
   font-family: Roboto;
   background-color: rgb(247, 247, 247);
+  margin: 0px;
 }
 
 p {
   margin: 0px;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 input {
@@ -21,13 +18,32 @@ input {
   border-radius: 4px;
 }
 
-.nav {
+.navbar {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  box-shadow: 2px 2px 16px rgba(0,0,0,0.1);
+  padding: 0px 20px;
+  position: sticky;
+  top:0;
+  z-index: 999;
+  background-color: white;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 40px;
+  padding: 20px;
+  height: calc(100vh - 90px);
+}
+
+.nav {
+  display: none;
   justify-content: space-around;
   align-items: center;
-  height: 80px;
-  column-gap: 40px;
-  padding: 0px 30px;
+  column-gap: 10px;
 }
 
 .btn {
@@ -36,13 +52,12 @@ input {
   border: none;
   border-radius: 20px;
   text-decoration: none;
-  padding: 12px;
+  padding: 8px;
   display: inline-block;
   text-align: center;
-  flex-grow: 1;
-  font-size: 1.2em;
-  font-weight: bold;
-  width: 10px;
+  font-weight: 500;
+  width: 100px;
+  cursor: pointer;
 }
 
 .btn.inactive {
@@ -50,13 +65,21 @@ input {
   color: black;
 }
 
-label {
-  font-weight: bold;
+label, .semi-bold {
+  font-weight: 500;
 }
 
 .container {
-  max-width: 600px;
-  margin: 0px auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-title {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -65,7 +88,7 @@ label {
   border-radius: 10px;
   background-color: white;
   padding: 30px;
-  display: block;
+  flex-grow: 1;
 }
 
 .card.inactive {
@@ -87,7 +110,7 @@ label {
   text-align: center;
   font-size: 2.5em;
   font-family: Poppins;
-  font-weight: bold;
+  font-weight: 700;
   color: #E28500;
 }
 
@@ -103,17 +126,26 @@ label {
   text-align: center;
 }
 
-@media (max-width: 500px) {
-  .nav {
-    column-gap: 10px;
-    padding: 0px 10px;
+@media (max-width: 650px) {
+  .content {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    padding: 20px;
+    /* height: calc(100vh - 90px); */
   }
-  .card {
-    padding: 30px 10px;
+  .container {
+    height: calc(100vh - 90px);
+  }
+  .content-title {
+    font-size: 1.3em;
+  }
+  .nav {
+    display: flex;
   }
 }
 
 #map {
-  height: 600px;
-  width: 100%;
+  /* height: calc(100vh - 80px); */
+  /* width: 100%; */
+  height: 100%;
 }
