@@ -40,8 +40,8 @@ const min = document.querySelector('#min');
 const pricingButton = document.querySelector('#pricing-button');
 const mapButton = document.querySelector('#map-button');
 
-const pricingCard = document.querySelector('#pricing-card');
-const mapCard = document.querySelector('#map');
+const pricingContainer = document.querySelector('#pricing-container');
+const mapContainer = document.querySelector('#map-container');
 
 
 const minValue = () => {
@@ -81,11 +81,15 @@ age.addEventListener('change', minValue);
 pricingButton.addEventListener('click', () => {
   pricingButton.classList.remove('inactive');
   mapButton.classList.add('inactive');
+  pricingContainer.classList.remove('inactive');
+  mapContainer.classList.add('inactive');
 })
 
 mapButton.addEventListener('click', () => {
   pricingButton.classList.add('inactive');
   mapButton.classList.remove('inactive');
+  pricingContainer.classList.add('inactive');
+  mapContainer.classList.remove('inactive');
 })
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiOHNpbW9uYXUiLCJhIjoiY2xwaXFxbWVwMDI3NTJubDZxa2g2dmtxbSJ9.BF_dr7VOxg6PixXHrEE-FQ';

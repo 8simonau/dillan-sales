@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex">
 
   <link rel="stylesheet" href="style.css">
+  <link href="https://assets-global.website-files.com/635bcfc5c3b17618b2c67741/635bcfc5c3b176488ec679c3_Dillan_logo_square.png" rel="shortcut icon" type="image/x-icon" />
 
   <!-- Mapbox script and CSS -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
@@ -20,19 +21,19 @@
   <div class="navbar">
     <img src="https://assets-global.website-files.com/635bcfc5c3b17618b2c67741/635bcfc5c3b176953ec67971_Dillan_logo%20svg.svg" width="120px" alt="Logo Dillan">
     <div class="nav">
-      <a href="#top"id="pricing-button" class="btn inactive">Prix</a>
-      <a href="#map"id="map-button" class="btn">Villes</a>
+      <button id="pricing-button" class="btn">Prix</button>
+      <button id="map-button" class="btn inactive">Villes</button>
     </div>
   </div>
 
   <div class="content">
 
-    <div class="container">
+    <div id="pricing-container" class="container">
 
 
-      <p class="content-title">Pricing</p>
+      <p class="container-title">Pricing</p>
 
-      <div id="pricing-card" class="card">
+      <div class="card">
         <div class="labelled-input">
         <label>Age du plus jeune</label>
         <input id="age" type="number" min="70" placeholder="75">
@@ -53,9 +54,9 @@
       </div>
     </div>
 
-    <div class="container">
+    <div id="map-container" class="container">
 
-      <p class="content-title">Eligibilité géographique</p>
+      <p class="container-title">Eligibilité géographique</p>
 
       <div id="map" class="card">
       </div>
