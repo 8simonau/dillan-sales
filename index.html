@@ -6,6 +6,8 @@
   <meta name="robots" content="noindex">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+  <!-- favicon -->
   <link href="https://assets-global.website-files.com/635bcfc5c3b17618b2c67741/635bcfc5c3b176488ec679c3_Dillan_logo_square.png" rel="shortcut icon" type="image/x-icon" />
 
   <!-- Mapbox script and CSS -->
@@ -34,23 +36,39 @@
       <p class="container-title">Pricing</p>
 
       <div class="card">
-        <div class="labelled-input">
-        <label>Age du plus jeune</label>
-        <input id="age" type="number" min="70" placeholder="75">
-      </div>
 
-      <div class="labelled-input">
-        <label>Valeur du bien</label>
-        <input id="value" type="number" min="200000" placeholder="300000">
-        <p>
-          Valeur minimale: <span id="min">257 879 €</span>
-        </p>
-      </div>
+        <div>
+          <div class="labelled-input">
+            <label>Age du plus jeune</label>
+            <input id="age" type="number" min="70" placeholder="75">
+          </div>
 
-      <div class="result">
-        <p class="text-center semi-bold">Pricing Dillan</p>
-        <p id="pricing">116 333 €</p>
-      </div>
+          <div class="labelled-input">
+            <label>Valeur du bien</label>
+            <input id="value" type="number" min="200000" placeholder="300000">
+            <p>
+              Valeur minimale: <span id="min">257 879 €</span>
+            </p>
+          </div>
+        </div>
+
+          <div class="result">
+            <p class="text-center semi-bold">Pricing Dillan</p>
+            <p id="pricing">116 333 €</p>
+          </div>
+
+          <div class="results-details">
+            <ul>
+            <li><i class="fa-solid fa-percent"></i><span id="percentage">56%</span></li>
+            <li><i class="fa-solid fa-forward-step"></i><span id="next-age">116 333 €</span></li>
+            <li><i class="fa-regular fa-calendar"></i><span id="life-expectancy">12.3 ans</span></li>
+
+          </ul>
+        </div>
+
+        <div id="chuck">
+        </div>
+
       </div>
     </div>
 
@@ -63,10 +81,6 @@
     </div>
 
   </div>
-
-    <script>
-
-    </script>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

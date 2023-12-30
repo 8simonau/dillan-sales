@@ -89,6 +89,9 @@ label, .semi-bold {
   background-color: white;
   padding: 30px;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container.inactive {
@@ -100,10 +103,6 @@ label, .semi-bold {
   flex-direction: column;
   row-gap: 10px;
   margin-bottom: 20px;
-}
-
-.result {
-  margin-top: 30px;
 }
 
 #pricing {
@@ -134,7 +133,7 @@ label, .semi-bold {
     /* height: calc(100vh - 90px); */
   }
   .container {
-    height: calc(100vh - 90px);
+    height: calc(100dvh - 90px);
   }
   .container-title {
     font-size: 1.3em;
@@ -147,4 +146,27 @@ label, .semi-bold {
 #map {
   /* height: calc(100vh - 80px); */
   height: 100%;
+}
+
+#chuck {
+  font-size: 0.6em;
+  color: gray;
+  margin-top: 20px;
+}
+
+.results-details ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.results-details i {
+  margin-right: 12px;
+  background-color: rgb(241, 241, 241);
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.results-details li {
+  margin: 12px 0px;
 }

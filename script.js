@@ -1,3 +1,7 @@
+fetch("https://api.chucknorris.io/jokes/random")
+  .then(response => response.json())
+  .then(data => document.querySelector('#chuck').innerHTML = data.value);
+
 const bareme = {
   70: 0.3,
   71: 0.316111111111111,
