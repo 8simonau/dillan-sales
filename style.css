@@ -164,7 +164,9 @@ label, .semi-bold {
   margin-right: 12px;
   background-color: rgb(241, 241, 241);
   padding: 6px;
+  width: 16px;
   border-radius: 4px;
+  text-align: center;
 }
 
 .results-details li {

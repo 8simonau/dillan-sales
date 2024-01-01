@@ -3,43 +3,47 @@ fetch("https://api.chucknorris.io/jokes/random")
   .then(data => document.querySelector('#chuck').innerHTML = data.value);
 
 const bareme = {
-  70: 0.3,
-  71: 0.316111111111111,
-  72: 0.332777777777778,
-  73: 0.351111111111111,
-  74: 0.367777777777778,
-  75: 0.387777777777778,
-  76: 0.407222222222222,
-  77: 0.428888888888889,
-  78: 0.45,
-  79: 0.472777777777778,
-  80: 0.493888888888889,
-  81: 0.517777777777778,
-  82: 0.541111111111111,
-  83: 0.565,
-  84: 0.587222222222222,
-  85: 0.612777777777778,
-  86: 0.612777777777778,
-  87: 0.612777777777778,
-  88: 0.612777777777778,
-  89: 0.612777777777778,
-  90: 0.612777777777778,
-  91: 0.612777777777778,
-  92: 0.612777777777778,
-  93: 0.612777777777778,
-  94: 0.612777777777778,
-  95: 0.612777777777778,
-  96: 0.612777777777778,
-  97: 0.612777777777778,
-  98: 0.612777777777778,
-  99: 0.612777777777778,
-  100: 0.612777777777778
+  70: {"taux": 0.3, "edv": 22.7},
+  71: {"taux": 0.316111111111111, "edv": 21.7},
+  72: {"taux": 0.332777777777778, "edv": 20.7},
+  73: {"taux": 0.351111111111111, "edv": 19.7},
+  74: {"taux": 0.367777777777778, "edv": 18.8},
+  75: {"taux": 0.387777777777778, "edv": 17.8},
+  76: {"taux": 0.407222222222222, "edv": 16.9},
+  77: {"taux": 0.428888888888889, "edv": 15.9},
+  78: {"taux": 0.45, "edv": 15},
+  79: {"taux": 0.472777777777778, "edv": 14.1},
+  80: {"taux": 0.493888888888889, "edv": 13.3},
+  81: {"taux": 0.517777777777778, "edv": 12.4},
+  82: {"taux": 0.541111111111111, "edv": 11.6},
+  83: {"taux": 0.565, "edv": 10.8},
+  84: {"taux": 0.587222222222222, "edv": 10.1},
+  85: {"taux": 0.612777777777778, "edv": 9.3},
+  86: {"taux": 0.612777777777778, "edv": 9.1},
+  87: {"taux": 0.612777777777778, "edv": 8.4},
+  88: {"taux": 0.612777777777778, "edv": 7.8},
+  89: {"taux": 0.612777777777778, "edv": 7.2},
+  90: {"taux": 0.612777777777778, "edv": 6.7},
+  91: {"taux": 0.612777777777778, "edv": 6.2},
+  92: {"taux": 0.612777777777778, "edv": 5.8},
+  93: {"taux": 0.612777777777778, "edv": 5.5},
+  94: {"taux": 0.612777777777778, "edv": 5.2},
+  95: {"taux": 0.612777777777778, "edv": 4.8},
+  96: {"taux": 0.612777777777778, "edv": 4.6},
+  97: {"taux": 0.612777777777778, "edv": 4.3},
+  98: {"taux": 0.612777777777778, "edv": 4},
+  99: {"taux": 0.612777777777778, "edv": 3.7},
+  100: {"taux": 0.612777777777778, "edv": 3.5}
 };
 
 const age = document.querySelector('#age');
 const value = document.querySelector('#value');
 const pricing = document.querySelector('#pricing');
 const min = document.querySelector('#min');
+const percentage = document.querySelector('#percentage');
+const nextAge = document.querySelector('#next-age');
+const lifeExpectancy = document.querySelector('#life-expectancy');
+
 
 const pricingButton = document.querySelector('#pricing-button');
 const mapButton = document.querySelector('#map-button');
@@ -49,7 +53,7 @@ const mapContainer = document.querySelector('#map-container');
 
 
 const minValue = () => {
-  const m = Math.max(Math.ceil(100000 / bareme[age.value]), 200000);
+  const m = Math.max(Math.ceil(100000 / bareme[age.value].taux), 200000);
   if (age.value < 70) {
     min.innerHTML = ""
   } else {
@@ -63,7 +67,8 @@ const minValue = () => {
 }
 
 const calculatePricing = () => {
-  const p = (parseInt(value.value) * bareme[age.value]);
+  const p = (parseInt(value.value) * bareme[age.value].taux);
+  const q = (parseInt(value.value) * bareme[parseInt(age.value) + 1].taux);
   if (age.value < 70) {
     pricing.innerHTML = "Veuillez indiquer un âge supérieur à 70 ans";
     pricing.classList.add('error');
@@ -73,6 +78,9 @@ const calculatePricing = () => {
   } else {
     pricing.innerHTML = p.toLocaleString('fr', {maximumFractionDigits: 0, style: "currency", currency:"EUR"});
     pricing.classList.remove('error');
+    percentage.innerHTML = `${(bareme[age.value].taux * 100).toFixed(1)}%`;
+    nextAge.innerHTML = q.toLocaleString('fr', {maximumFractionDigits: 0, style: "currency", currency:"EUR"});
+    lifeExpectancy.innerHTML = `${bareme[age.value].edv} ans`;
   }
 }
 
