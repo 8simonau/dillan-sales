@@ -67,12 +67,12 @@ const minValue = () => {
 }
 
 const calculatePricing = () => {
-  const p = (parseInt(value.value) * bareme[age.value].taux);
+  const p = (parseInt(value.value) * bareme[parseInt(age.value)].taux);
   const q = (parseInt(value.value) * bareme[parseInt(age.value) + 1].taux);
-  if (age.value < 70) {
+  if (parseInt(age.value) < 70) {
     pricing.innerHTML = "Veuillez indiquer un âge supérieur à 70 ans";
     pricing.classList.add('error');
-  } else if (value.value < value.min) {
+  } else if (parseInt(value.value) < parseInt(value.min)) {
     pricing.innerHTML = `Veuillez indiquer une valeur supérieure à ${value.min} €`;
     pricing.classList.add('error');
   } else {
